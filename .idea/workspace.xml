@@ -2,11 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d1528cea-935f-474c-9533-dec884b2c2c1" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/68c99ee0-19f2-401a-a518-de826fe9b73f.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/68c99ee0-19f2-401a-a518-de826fe9b73f.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Auth/LoginController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Auth/LoginController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Auth/VerificationController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Auth/VerificationController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/api.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/api.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -221,7 +218,7 @@
       <updated>1585662640598</updated>
       <workItem from="1585662737225" duration="5858000" />
       <workItem from="1585719375430" duration="3932000" />
-      <workItem from="1585742774431" duration="5556000" />
+      <workItem from="1585742774431" duration="6396000" />
     </task>
     <servers />
   </component>
@@ -237,10 +234,10 @@
       <screen x="1440" y="-72" width="1920" height="1080" />
     </state>
     <state x="2063" y="220" width="673" height="496" key="find.popup/0.0.1440.900/1440.-72.1920.1080@1440.-72.1920.1080" timestamp="1585753612022" />
-    <state x="2065" y="169" width="670" height="676" key="search.everywhere.popup" timestamp="1585752683458">
+    <state x="2065" y="169" width="670" height="676" key="search.everywhere.popup" timestamp="1585758762782">
       <screen x="1440" y="-72" width="1920" height="1080" />
     </state>
-    <state x="2065" y="169" width="670" height="676" key="search.everywhere.popup/0.0.1440.900/1440.-72.1920.1080@1440.-72.1920.1080" timestamp="1585752683458" />
+    <state x="2065" y="169" width="670" height="676" key="search.everywhere.popup/0.0.1440.900/1440.-72.1920.1080@1440.-72.1920.1080" timestamp="1585758762782" />
     <state x="469" y="201" width="670" height="564" key="search.everywhere.popup/0.0.1440.900@0.0.1440.900" timestamp="1585722165106" />
   </component>
 </project>

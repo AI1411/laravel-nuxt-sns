@@ -64,4 +64,10 @@ class LoginController extends Controller
         ]);
     }
 
+    public function logout()
+    {
+        $this->guard()->logout();
+
+        return response()->json(['message' => 'ログアウトしました']);
+    }
 }
