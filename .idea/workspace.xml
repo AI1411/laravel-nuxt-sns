@@ -1,7 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="d1528cea-935f-474c-9533-dec884b2c2c1" name="Default Changelist" comment="" />
+    <list default="true" id="d1528cea-935f-474c-9533-dec884b2c2c1" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Auth/VerificationController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Auth/VerificationController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/User.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/app.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/app.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/api.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/api.php" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -49,6 +56,9 @@
       </path>
     </expand>
     <select />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="PhpWorkspaceProjectConfiguration">
     <include_path>
@@ -150,6 +160,7 @@
     </include_path>
   </component>
   <component name="ProjectId" id="1Zte6IlpKBENMtj4cQ3c9WS1ZOH" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showExcludedFiles" value="true" />
@@ -158,6 +169,7 @@
   <component name="PropertiesComponent">
     <property name="DatabaseDriversLRU" value="mysql" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="true" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
@@ -193,7 +205,7 @@
       <option name="presentableId" value="Default" />
       <updated>1585662640598</updated>
       <workItem from="1585662737225" duration="5858000" />
-      <workItem from="1585719375430" duration="212000" />
+      <workItem from="1585719375430" duration="3151000" />
     </task>
     <servers />
   </component>
@@ -209,10 +221,10 @@
       <screen x="1440" y="-72" width="1920" height="1080" />
     </state>
     <state x="2063" y="220" width="673" height="496" key="find.popup/0.0.1440.900/1440.-72.1920.1080@1440.-72.1920.1080" timestamp="1585663536585" />
-    <state x="469" y="201" width="670" height="564" key="search.everywhere.popup" timestamp="1585708307083">
+    <state x="469" y="201" width="670" height="564" key="search.everywhere.popup" timestamp="1585722165106">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
     <state x="2065" y="169" width="670" height="676" key="search.everywhere.popup/0.0.1440.900/1440.-72.1920.1080@1440.-72.1920.1080" timestamp="1585671187661" />
-    <state x="469" y="201" width="670" height="564" key="search.everywhere.popup/0.0.1440.900@0.0.1440.900" timestamp="1585708307083" />
+    <state x="469" y="201" width="670" height="564" key="search.everywhere.popup/0.0.1440.900@0.0.1440.900" timestamp="1585722165106" />
   </component>
 </project>
