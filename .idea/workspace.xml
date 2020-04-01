@@ -2,11 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d1528cea-935f-474c-9533-dec884b2c2c1" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/68c99ee0-19f2-401a-a518-de826fe9b73f.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/68c99ee0-19f2-401a-a518-de826fe9b73f.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Auth/LoginController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Auth/LoginController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Auth/VerificationController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Auth/VerificationController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/User.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/app.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/app.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/api.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/api.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -58,6 +58,11 @@
     <select />
   </component>
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="master" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="PhpWorkspaceProjectConfiguration">
@@ -187,7 +192,17 @@
       <list>
         <serviceView>
           <treeState>
-            <expand />
+            <expand>
+              <path>
+                <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
+                <item name="root:designhouse@localhost" type="7427dc5b:ServiceModel$ServiceGroupNode" />
+              </path>
+              <path>
+                <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
+                <item name="root:designhouse@localhost" type="7427dc5b:ServiceModel$ServiceGroupNode" />
+                <item name="com.intellij.database.console.session.MessageBusSession@67c5e493" type="9fbbdea:ServiceModel$ServiceNode" />
+              </path>
+            </expand>
             <select />
           </treeState>
         </serviceView>
@@ -205,7 +220,8 @@
       <option name="presentableId" value="Default" />
       <updated>1585662640598</updated>
       <workItem from="1585662737225" duration="5858000" />
-      <workItem from="1585719375430" duration="3151000" />
+      <workItem from="1585719375430" duration="3932000" />
+      <workItem from="1585742774431" duration="5556000" />
     </task>
     <servers />
   </component>
@@ -217,14 +233,14 @@
       <screen x="1440" y="-72" width="1920" height="1080" />
     </state>
     <state x="2000" y="133" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1440.900/1440.-72.1920.1080@1440.-72.1920.1080" timestamp="1585664631819" />
-    <state x="2063" y="220" width="673" height="496" key="find.popup" timestamp="1585663536585">
+    <state x="2063" y="220" width="673" height="496" key="find.popup" timestamp="1585753612022">
       <screen x="1440" y="-72" width="1920" height="1080" />
     </state>
-    <state x="2063" y="220" width="673" height="496" key="find.popup/0.0.1440.900/1440.-72.1920.1080@1440.-72.1920.1080" timestamp="1585663536585" />
-    <state x="469" y="201" width="670" height="564" key="search.everywhere.popup" timestamp="1585722165106">
-      <screen x="0" y="0" width="1440" height="900" />
+    <state x="2063" y="220" width="673" height="496" key="find.popup/0.0.1440.900/1440.-72.1920.1080@1440.-72.1920.1080" timestamp="1585753612022" />
+    <state x="2065" y="169" width="670" height="676" key="search.everywhere.popup" timestamp="1585752683458">
+      <screen x="1440" y="-72" width="1920" height="1080" />
     </state>
-    <state x="2065" y="169" width="670" height="676" key="search.everywhere.popup/0.0.1440.900/1440.-72.1920.1080@1440.-72.1920.1080" timestamp="1585671187661" />
+    <state x="2065" y="169" width="670" height="676" key="search.everywhere.popup/0.0.1440.900/1440.-72.1920.1080@1440.-72.1920.1080" timestamp="1585752683458" />
     <state x="469" y="201" width="670" height="564" key="search.everywhere.popup/0.0.1440.900@0.0.1440.900" timestamp="1585722165106" />
   </component>
 </project>

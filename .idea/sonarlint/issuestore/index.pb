@@ -19,3 +19,9 @@ C
 0app/Http/Controllers/Auth/RegisterController.php,a/0/a0ffa01331c31490401d3514217b1d5b3700fb49
 l
 <database/migrations/2014_10_12_000000_create_users_table.php,d/e/de963aaada5c6577b654cfbdcf083dc355b1fa2b
+>
+config/app.php,7/3/734f7be25e8008acc7129e73cd116d5de913e6fd
+Q
+!app/Notifications/VerifyEmail.php,d/a/da00ac82c4b43fa8ed711892c7d0beead245ebe0
+d
+4app/Http/Controllers/Auth/VerificationController.php,4/7/47908c6d61ac78a61e2bcb273e3187e50a1937cc
