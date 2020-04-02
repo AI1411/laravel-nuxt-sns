@@ -21,7 +21,7 @@ class DesignResource extends JsonResource
             'title' => $this->title,
             'slug' => $this->slug,
             'images' => $this->images,
-            'description' => $this->dscription,
+            'description' => $this->description,
             'tag_list' => [
                 'tags' => $this->tagArray,
                 'normalized' => $this->tagArrayNormalized,
