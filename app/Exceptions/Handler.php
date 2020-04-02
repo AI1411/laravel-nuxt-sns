@@ -66,6 +66,12 @@ class Handler extends ExceptionHandler
             ]], 404);
         }
 
+        if ($exception instanceof ModelNotDefined && $request->expectsJson()) {
+            return response()->json(['errors' => [
+                'message' => 'モデルが定義されていません'
+            ]], 500);
+        }
+
         return parent::render($request, $exception);
     }
 }

@@ -5,10 +5,10 @@ namespace App\Repositories\Eloquent;
 use App\Models\Design;
 use App\Repositories\Contracts\IDesign;
 
-class DesignRepository implements IDesign
+class DesignRepository extends BaseRepository implements IDesign
 {
-    public function all()
+    public function model()
     {
-        return Design::all();
+        return Design::class;
     }
 }
