@@ -3,8 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="d1528cea-935f-474c-9533-dec884b2c2c1" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/User/SettingsController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/User/SettingsController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/api.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/api.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/User.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -57,7 +56,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="master" />
+        <entry key="$PROJECT_DIR$" value="dev" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -190,17 +189,7 @@
       <list>
         <serviceView>
           <treeState>
-            <expand>
-              <path>
-                <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
-                <item name="root:designhouse@localhost" type="7427dc5b:ServiceModel$ServiceGroupNode" />
-              </path>
-              <path>
-                <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
-                <item name="root:designhouse@localhost" type="7427dc5b:ServiceModel$ServiceGroupNode" />
-                <item name="com.intellij.database.console.session.MessageBusSession@6606a3d7" type="9fbbdea:ServiceModel$ServiceNode" />
-              </path>
-            </expand>
+            <expand />
             <select />
           </treeState>
         </serviceView>
@@ -254,10 +243,10 @@
       <screen x="1440" y="-72" width="1920" height="1080" />
     </state>
     <state x="2063" y="220" width="673" height="496" key="find.popup/0.0.1440.900/1440.-72.1920.1080@1440.-72.1920.1080" timestamp="1585753612022" />
-    <state x="2065" y="169" width="670" height="676" key="search.everywhere.popup" timestamp="1585793727216">
+    <state x="2065" y="169" width="670" height="676" key="search.everywhere.popup" timestamp="1585797537349">
       <screen x="1440" y="-72" width="1920" height="1080" />
     </state>
-    <state x="2065" y="169" width="670" height="676" key="search.everywhere.popup/0.0.1440.900/1440.-72.1920.1080@1440.-72.1920.1080" timestamp="1585793699876" />
+    <state x="2065" y="169" width="670" height="676" key="search.everywhere.popup/0.0.1440.900/1440.-72.1920.1080@1440.-72.1920.1080" timestamp="1585797537349" />
     <state x="469" y="201" width="670" height="564" key="search.everywhere.popup/0.0.1440.900@0.0.1440.900" timestamp="1585722165106" />
     <state x="2065" y="169" width="670" height="676" key="search.everywhere.popup/0.23.1440.877/1440.-72.1920.1080@1440.-72.1920.1080" timestamp="1585793727216" />
   </component>
