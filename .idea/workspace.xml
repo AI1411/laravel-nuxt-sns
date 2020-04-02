@@ -3,10 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="d1528cea-935f-474c-9533-dec884b2c2c1" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Auth/ForgotPasswordController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Auth/ForgotPasswordController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Auth/ResetPasswordController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Auth/ResetPasswordController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/User/MeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/User/MeController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/User.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/api.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/api.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -212,7 +208,7 @@
       <updated>1585662640598</updated>
       <workItem from="1585662737225" duration="5858000" />
       <workItem from="1585719375430" duration="3932000" />
-      <workItem from="1585742774431" duration="10289000" />
+      <workItem from="1585742774431" duration="12092000" />
     </task>
     <servers />
   </component>
@@ -239,14 +235,19 @@
       <screen x="1440" y="-72" width="1920" height="1080" />
     </state>
     <state x="2138" y="230" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1440.900/1440.-72.1920.1080@1440.-72.1920.1080" timestamp="1585792970593" />
+    <state x="1938" y="130" key="DBNavigator.ProjectSettingsDialog" timestamp="1585793703174">
+      <screen x="1440" y="-72" width="1920" height="1080" />
+    </state>
+    <state x="1938" y="130" key="DBNavigator.ProjectSettingsDialog/0.0.1440.900/1440.-72.1920.1080@1440.-72.1920.1080" timestamp="1585793703174" />
     <state x="2063" y="220" width="673" height="496" key="find.popup" timestamp="1585753612022">
       <screen x="1440" y="-72" width="1920" height="1080" />
     </state>
     <state x="2063" y="220" width="673" height="496" key="find.popup/0.0.1440.900/1440.-72.1920.1080@1440.-72.1920.1080" timestamp="1585753612022" />
-    <state x="2065" y="169" width="670" height="676" key="search.everywhere.popup" timestamp="1585790230784">
+    <state x="2065" y="169" width="670" height="676" key="search.everywhere.popup" timestamp="1585793727216">
       <screen x="1440" y="-72" width="1920" height="1080" />
     </state>
-    <state x="2065" y="169" width="670" height="676" key="search.everywhere.popup/0.0.1440.900/1440.-72.1920.1080@1440.-72.1920.1080" timestamp="1585790230784" />
+    <state x="2065" y="169" width="670" height="676" key="search.everywhere.popup/0.0.1440.900/1440.-72.1920.1080@1440.-72.1920.1080" timestamp="1585793699876" />
     <state x="469" y="201" width="670" height="564" key="search.everywhere.popup/0.0.1440.900@0.0.1440.900" timestamp="1585722165106" />
+    <state x="2065" y="169" width="670" height="676" key="search.everywhere.popup/0.23.1440.877/1440.-72.1920.1080@1440.-72.1920.1080" timestamp="1585793727216" />
   </component>
 </project>
