@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers\User;
 
+use App\Rules\CheckSamePassword;
+use App\Rules\MatchOldPassword;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Http\Resources\UserResource;
@@ -39,6 +41,15 @@ class SettingsController extends Controller
 
     public function updatePassword(Request $request)
     {
+        //current Password
+        $this->validate($request, [
+           'current_password' => ['required', new MatchOldPassword],
+           'password' => ['required', 'confirmed', 'min:6', new CheckSamePassword]
+        ]);
 
+        $request->user()->update([
+            'password' => bcrypt($request->password),
+        ]);
+        return response()->json(['message' => 'パスワードが変更されました']);
     }
 }
