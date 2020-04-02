@@ -21,6 +21,8 @@ class CreateDesignsTable extends Migration
             $table->text('description')->nullable();
             $table->string('slug')->nullable();
             $table->boolean('is_live')->default(false);
+            $table->boolean('upload_successful')->default(false);
+            $table->string('disk')->default('public');
             $table->timestamps();
 
             $table->foreign('user_id')->references('id')->on('users');
