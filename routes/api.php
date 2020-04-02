@@ -12,6 +12,7 @@ Route::group(['middleware' => ['auth:api']], function () {
     Route::put('settings/password', 'User\SettingsController@updatePassword');
 
     Route::post('designs', 'Designs\UploadController@upload');
+    Route::put('designs/{id}', 'Designs\DesignController@update');
 });
 
 //Routes for guest only
