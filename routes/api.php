@@ -22,6 +22,7 @@ Route::group(['middleware' => ['auth:api']], function () {
 
     //likes
     Route::post('designs/{id}/like', 'Designs\DesignController@like');
+    Route::get('designs/{id}/liked', 'Designs\DesignController@checkIfUserHasLiked');
 
     // Comments
     Route::post('designs/{id}/comments', 'Designs\CommentController@store');
