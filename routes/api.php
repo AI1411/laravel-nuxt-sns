@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('me', 'User\MeController@getMe');
 
 Route::get('designs', 'Designs\DesignController@index');
+Route::get('designs/{id}', 'Designs\DesignController@findDesign');
 
 Route::get('users', 'User\UserController@index');
 
