@@ -17,11 +17,11 @@ class CommentResource extends JsonResource
         return [
             'id' => $this->id,
             'body' => $this->body,
-            'created_dates' => [
+            'created_at_dates' => [
                 'created_at_human' => $this->created_at->diffForHumans(),
                 'created_at' => $this->created_at
             ],
-            'updated_at_date' => [
+            'updated_at_dates' => [
                 'updated_at_human' => $this->updated_at->diffForHumans(),
                 'updated_at' => $this->updated_at
             ],
