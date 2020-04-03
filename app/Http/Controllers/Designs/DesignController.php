@@ -76,8 +76,15 @@ class DesignController extends Controller
                 Storage::disk($design->disk)->delete("uploads/designs/{$size}/" . $design->image);
             }
         }
-        $this->designs->delete();
+        $this->designs->delete($id);
 
         return response()->json(['message' => '削除されました'], 200);
+    }
+
+    public function like($id)
+    {
+        $this->designs->like($id);
+
+        return response()->json(['message' => 'successful'], 200);
     }
 }
