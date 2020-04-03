@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Resources\DesignResource;
 use App\Models\Design;
 use App\Repositories\Contracts\IDesign;
+use App\Repositories\Eloquent\Criteria\ForUser;
 use App\Repositories\Eloquent\Criteria\IsLive;
 use App\Repositories\Eloquent\Criteria\LatestFirst;
 use Illuminate\Http\Request;
@@ -27,6 +28,7 @@ class DesignController extends Controller
         $designs = $this->designs->withCriteria([
             new LatestFirst(),
             new IsLive(),
+            new ForUser(1),
         ])->all();
 
         return DesignResource::collection($designs);
