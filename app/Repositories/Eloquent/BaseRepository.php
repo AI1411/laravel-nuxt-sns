@@ -5,8 +5,10 @@ namespace App\Repositories\Eloquent;
 use App\Exceptions\ModelNotDefined;
 use App\Models\User;
 use App\Repositories\Contracts\IBase;
+use App\Repositories\Criteria\ICriteria;
+use Illuminate\Support\Arr;
 
-abstract class BaseRepository implements IBase
+abstract class BaseRepository implements IBase, ICriteria
 {
     protected $model;
 
@@ -17,7 +19,7 @@ abstract class BaseRepository implements IBase
 
     public function all()
     {
-        return $this->model->all();
+        return $this->model->get();
     }
 
     public function find($id)
@@ -64,5 +66,15 @@ abstract class BaseRepository implements IBase
             throw new ModelNotDefined();
         }
         return app()->make($this->model());
+    }
+
+    public function withCriteria(...$criteria)
+    {
+        $criteria = Arr::flatten($criteria);
+
+        foreach ($criteria as $criterion) {
+            $this->model = $criterion->apply($this->model);
+        }
+        return $this;
     }
 }
