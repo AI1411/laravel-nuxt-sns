@@ -88,7 +88,7 @@ class DesignController extends Controller
         return response()->json(['message' => 'successful'], 200);
     }
 
-    public function checkIfUserHasLiked($designId): bool
+    public function checkIfUserHasLiked($designId)
     {
         $isLiked = $this->designs->isLikedByUser($designId);
 
