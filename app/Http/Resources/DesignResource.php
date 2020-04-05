@@ -35,6 +35,10 @@ class DesignResource extends JsonResource
                 'update_at_human' => $this->updated_at->diffForHumans(),
                 'update_at' => $this->updated_at
             ],
+            'team' => $this->team ? [
+                'name' => $this->team->name,
+                'slug' => $this->team->slug,
+            ] : null,
             'comments' => CommentResource::collection(
                 $this->whenLoaded('comments')
             ),
