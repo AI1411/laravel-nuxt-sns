@@ -36,9 +36,11 @@ class TeamsController extends Controller
         return new TeamResource($team);
     }
 
-    public function findById()
+    public function findById($id)
     {
+        $team = $this->teams->find($id);
 
+        return new TeamResource($team);
     }
 
     public function findBySlug()
@@ -48,12 +50,26 @@ class TeamsController extends Controller
 
     public function fetchUserTeams()
     {
-        //
+        $teams = $this->teams->fetchUserTeams();
+
+        return TeamResource::collection($teams);
     }
 
-    public function update()
+    public function update(Request $request, $id)
     {
+        $team = $this->teams->find($id);
+        $this->authorize('update', $team);
 
+        $this->validate($request, [
+           'name' => ['required', 'string', 'max:80', 'unique:teams,name,' . $id]
+        ]);
+
+        $this->teams->update($id, [
+           'name' => $request->name,
+           'slug' => Str::slug($request->name),
+        ]);
+
+        return new TeamResource($team);
     }
 
     public function destroy()

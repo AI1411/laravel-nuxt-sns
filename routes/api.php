@@ -34,11 +34,11 @@ Route::group(['middleware' => ['auth:api']], function () {
 
     //teams
     Route::post('teams', 'Teams\TeamsController@store');
-    Route::get('teams/{id}', 'Teams\TeamContrller@findById');
-    Route::get('teams', 'TeamController@index');
-    Route::get('users/teams', 'Teams/TeamController@getchUserTeams');
-    Route::put('teams/{id}', 'Teams/TeamController@update');
-    Route::delete('users/{id}', 'Teams/TeamController@destroy');
+    Route::get('teams/{id}', 'Teams\TeamsController@findById');
+    Route::get('teams', 'Teams\TeamsController@index');
+    Route::get('users/teams', 'Teams\TeamsController@getchUserTeams');
+    Route::put('teams/{id}', 'Teams\TeamsController@update');
+    Route::delete('users/{id}', 'Teams\TeamsController@destroy');
 });
 
 //Routes for guest only
