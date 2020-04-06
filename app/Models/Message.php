@@ -18,6 +18,17 @@ class Message extends Model
         'last_read'
     ];
 
+    public function getBodyAttribute($value)
+    {
+        if ($this->trashed()) {
+            if (!auth()->check()) return null;
+
+            return auth()->id() === $this->sender->id ? 'このメッセージは削除されました'
+                : "{$this->sender->name} がこのメッセージを削除しました";
+        }
+        return $value;
+    }
+
     public function chat()
     {
         return $this->belongsTo(Chat::class);

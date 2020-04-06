@@ -80,6 +80,8 @@ class ChatController extends Controller
         $this->authorize('delete', $message);
         $message->delete();
 
-
+        return response()->json([
+            'message' => 'Successful'
+        ], 200);
     }
 }
