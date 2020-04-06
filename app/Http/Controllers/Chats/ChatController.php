@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Chats;
 
 use App\Http\Controllers\Controller;
+use App\Http\Resources\ChatResource;
 use App\Http\Resources\MessageResource;
 use App\Repositories\Contracts\IChat;
 use App\Repositories\Contracts\IMessage;
@@ -49,7 +50,8 @@ class ChatController extends Controller
 
     public function getUserChats()
     {
-
+        $chats = $this->chats->getUserChats();
+        return ChatResource::collection($chats);
     }
 
     public function getChatMessages($id)
