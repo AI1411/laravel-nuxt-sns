@@ -14,6 +14,8 @@ use Illuminate\Support\Facades\Mail;
 class InvitationsController extends Controller
 {
     protected $invitations;
+    protected $teams;
+    protected $users;
 
     public function __construct(Invitation $invitations, ITeam $teams, IUser $users)
     {
@@ -73,12 +75,16 @@ class InvitationsController extends Controller
 
         //send the invitation to the user
         $this->createInvitation(true, $team, $request->email);
+        return response()->json([
+           'email' => 'すでにチームのメンバーです'
+        ], 422);
 
     }
 
     public function resend($id)
     {
         $invitation = $this->invitations->find($id);
+        $this->authorize('resend', $invitation);
 
         if (!auth()->user()->isOwnerOfTeam($invitation->team)) {
             return response()->json([
@@ -96,7 +102,46 @@ class InvitationsController extends Controller
 
     public function respond(Request $request, $id)
     {
-        //
+        $this->validate($request, [
+           'token' => ['required'],
+           'decision' => ['required']
+        ]);
+
+        $token = $request->token;
+
+        $decision = $request->descision;
+        $invitation = $this->invitations->find($id);
+
+        //check if the invitation belongs to this user
+        $this->authorize('respond', $invitation);
+
+        //check to make sure that the token matches
+        if ($invitation->token !== $token) {
+            return response()->json([
+               'message' => 'トークンが無効です'
+            ], 401);
+        }
+
+        //check the accepted
+        if($decision !== 'deny'){
+            $this->invitations->addUserToTeam($invitation->team, auth()->id());
+        }
+        $invitation->delete();
+
+        return response()->json([
+            'message' => 'Successful'
+        ], 200);
+    }
+
+    public function destroy($id)
+    {
+        $invitation = $this->invitations->find($id);
+        $this->authorize('delete', $invitation);
+        $invitation->delete();
+
+        return response()->json([
+           'message' => 'Deleted'
+        ], 200);
     }
 
     protected function createInvitation(bool $user_exists, Team $team, string $email)
