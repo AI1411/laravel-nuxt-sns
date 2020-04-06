@@ -43,7 +43,7 @@ Route::group(['middleware' => ['auth:api']], function () {
     //invitations
     Route::post('invitations/{teamId}', 'Teams\InvitationsController@invite');
     Route::post('invitations/{id}/resend', 'Teams\InvitationsController@resend');
-    Route::post('invitations/{id}/response', 'Teams\InvitationsController@response');
+    Route::post('invitations/{id}/respond', 'Teams\InvitationsController@respond');
     Route::delete('invitations/{id}', 'Teams\InvitationsController@destroy');
 });
 
