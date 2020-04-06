@@ -18,7 +18,7 @@ class CreateMessagesTable extends Migration
             $table->unsignedBigInteger('user_id');
             $table->unsignedBigInteger('chat_id');
             $table->text('body');
-            $table->dateTime('last_read');
+            $table->dateTime('last_read')->nullable();
             $table->softDeletes();
             $table->timestamps();
         });
