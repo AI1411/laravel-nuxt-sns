@@ -39,6 +39,7 @@ Route::group(['middleware' => ['auth:api']], function () {
     Route::get('users/teams', 'Teams\TeamsController@getchUserTeams');
     Route::put('teams/{id}', 'Teams\TeamsController@update');
     Route::delete('users/{id}', 'Teams\TeamsController@destroy');
+    Route::delete('teams/{team_id}/users/{user_id}', 'Teams\TeamsController@removeFromTeam');
 
     //invitations
     Route::post('invitations/{teamId}', 'Teams\InvitationsController@invite');
