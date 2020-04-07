@@ -5,11 +5,19 @@ use Illuminate\Support\Facades\Route;
 //public routes
 Route::get('me', 'User\MeController@getMe');
 
+//designs
 Route::get('designs', 'Designs\DesignController@index');
 Route::get('designs/{id}', 'Designs\DesignController@findDesign');
+Route::get('designs/slug/{slug}', 'Designs\DesignController@findBySlug');
 
+//users
 Route::get('users', 'User\UserController@index');
+Route::get('user/{username}', 'User\UserController@findbyUsername');
+Route::get('users/{id}/designs', 'Designs\DesignController@getForUser');
+
+//team
 Route::get('teams/slug/{slug}', 'Teams\TeamController@findBySlug');
+Route::get('teams/{id}/designs', 'Designs\DesignController@getForTeam');
 
 //Search Designs
 Route::get('search/designs', 'Designs\DesignController@search');

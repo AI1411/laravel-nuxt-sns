@@ -34,8 +34,18 @@ class User extends Authenticatable implements JWTSubject, MustVerifyEmail
      * @var array
      */
     protected $hidden = [
+
         'password', 'remember_token',
     ];
+
+    protected $appends = [
+      'photo_url'
+    ];
+
+    public function getPhotoUrlAttribute()
+    {
+        return 'https://www.gravatar.com/avatar/' . md5(strtolower($this->email)) . 'jpg?s=200&d=mm';
+    }
 
     /**
      * The attributes that should be cast to native types.

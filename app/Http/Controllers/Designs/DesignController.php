@@ -103,4 +103,31 @@ class DesignController extends Controller
 
         return DesignResource::collection($designs);
     }
+
+    public function findBySlug($slug)
+    {
+        $design = $this->designs->withCriteria([
+            new IsLIve()
+        ])->findWhereFirst('slug', $slug);
+
+        return new DesignResource($design);
+    }
+
+    public function getForTeam($teamId)
+    {
+        $designs = $this->designs->withCriteria([
+            new IsLIve()
+        ])->findWhereFirst('team_id', $teamId);
+
+        return DesignResource::collection($designs);
+    }
+
+    public function getForUser($userId)
+    {
+        $designs = $this->designs->withCriteria([
+            new IsLIve()
+        ])->findWhereFirst('user_id', $userId);
+
+        return DesignResource::collection($designs);
+    }
 }
