@@ -3,6 +3,7 @@
 namespace App\Http;
 
 use App\Http\Middleware\ProfileJsonResponse;
+use Fruitcake\Cors\HandleCors;
 use Illuminate\Foundation\Http\Kernel as HttpKernel;
 
 class Kernel extends HttpKernel
@@ -21,6 +22,7 @@ class Kernel extends HttpKernel
         \App\Http\Middleware\TrimStrings::class,
         \Illuminate\Foundation\Http\Middleware\ConvertEmptyStringsToNull::class,
         ProfileJsonResponse::class,
+        HandleCors::class,
     ];
 
     /**
