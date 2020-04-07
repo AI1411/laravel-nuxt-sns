@@ -27,22 +27,24 @@ class VerificationController extends Controller
     //verifyメソッドをオーバーライド
     public function verify(Request $request, User $user)
     {
-//        if (! URL::hasValidSignature($request)) {
-//            return response()->json(['errors' => [
-//                'message' => '無効なメールアドレスです'
-//            ]], 422);
-//        }
+        // check if the url is a valid signed url
+        if(! URL::hasValidSignature($request)){
+            return response()->json(["errors" => [
+                "message" => "Invalid verification link or signature"
+            ]], 422);
+        }
 
-        if ($user->hasVerifiedEmail()) {
-            return response()->json(['errors' => [
-                'message' => 'メールアドレスは認証されています。'
-            ]]);
+        // check if the user has already verified account
+        if($user->hasVerifiedEmail()){
+            return response()->json(["errors" => [
+                "message" => "Email address already verified"
+            ]], 422);
         }
 
         $user->markEmailAsVerified();
         event(new Verified($user));
 
-        return response()->json(['message' => 'メールアドレス認証が成功しました。'], 200);
+        return response()->json(['message' => 'Email successfully verified'], 200);
     }
 
     public function resend(Request $request)
