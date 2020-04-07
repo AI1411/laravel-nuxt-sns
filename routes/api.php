@@ -11,6 +11,12 @@ Route::get('designs/{id}', 'Designs\DesignController@findDesign');
 Route::get('users', 'User\UserController@index');
 Route::get('teams/slug/{slug}', 'Teams\TeamController@findBySlug');
 
+//Search Designs
+Route::get('search/designs', 'Designs\DesignController@search');
+
+//search users
+Route::get('search/designers', 'User\UserController@search');
+
 //Route group for authenticated users only
 Route::group(['middleware' => ['auth:api']], function () {
     //auth
