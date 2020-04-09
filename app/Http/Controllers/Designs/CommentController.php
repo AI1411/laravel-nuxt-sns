@@ -10,7 +10,7 @@ use App\Repositories\Contracts\IComment;
 
 class CommentController extends Controller
 {
-
+    
     protected $comments;
     protected $designs;
 
@@ -25,7 +25,7 @@ class CommentController extends Controller
         $this->validate($request, [
             'body' => ['required']
         ]);
-
+        
         $comment = $this->designs->addComment($designId, [
             'body' => $request->body,
             'user_id' => auth()->id()
@@ -43,7 +43,7 @@ class CommentController extends Controller
             'body' => ['required']
         ]);
         $comment = $this->comments->update($id, [
-            'body' => $request->body,
+            'body' => $request->body
         ]);
         return new CommentResource($comment);
     }
@@ -53,7 +53,8 @@ class CommentController extends Controller
         $comment = $this->comments->find($id);
         $this->authorize('delete', $comment);
         $this->comments->delete($id);
-
-        return response()->json(['message' => 'コメントは削除されました'], 200);
+        return response()->json(['message' => 'Item deleted'], 200);
     }
+
+    
 }

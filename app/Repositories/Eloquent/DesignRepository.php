@@ -1,18 +1,16 @@
 <?php
-
 namespace App\Repositories\Eloquent;
-
 use App\Models\Design;
+use Illuminate\Http\Request;
 use App\Repositories\Contracts\IDesign;
 use App\Repositories\Eloquent\BaseRepository;
-use Illuminate\Http\Request;
 
 class DesignRepository extends BaseRepository implements IDesign
 {
-
+    
     public function model()
     {
-        return Design::class;
+        return Design::class; 
     }
 
 
@@ -35,52 +33,55 @@ class DesignRepository extends BaseRepository implements IDesign
 
     public function like($id)
     {
-        $design = $this->model->findOrfail($id);
-        if ($design->isLikedByUser(auth()->id())) {
+        $design = $this->model->findOrFail($id);
+        if($design->isLikedByUser(auth()->id())){
             $design->unlike();
         } else {
             $design->like();
         }
+
+        return $design->likes()->count();
     }
 
     public function isLikedByUser($id)
     {
         $design = $this->model->findOrFail($id);
-
-        return $design->isLikedByuser(auth()->id());
+        return $design->isLikedByUser(auth()->id());
     }
 
     public function search(Request $request)
     {
         $query = (new $this->model)->newQuery();
-
         $query->where('is_live', true);
 
-        //コメントありのみ
-        if ($request->has_comments) {
+        // return only designs with comments
+        if($request->has_comments){
             $query->has('comments');
         }
-        //チームありのみ
-        if ($request->has_team) {
+
+        // return only designs assigned to teams
+        if($request->has_team){
             $query->has('team');
         }
 
-        //タイトルと説明の検索
-        if ($request->q) {
-            $query->where(function ($q) use ($request) {
-                $q->where('title', 'like', '%' . $request->q . '%')
-                    ->orWhere('description', 'like', '%' . $request->q . '%');
+        // search title and description for provided string
+        if($request->q){
+            $query->where(function($q) use ($request){
+                $q->where('title', 'like', '%'.$request->q.'%')
+                    ->orWhere('description', 'like', '%'.$request->q.'%');
             });
         }
 
-        //likes or latest first
-        if ($request->orderBy == 'likes') {
-            $query->withCount('likes') //likes_count
-            ->orderBydesc('likes_count');
+        // order the query by likes or latest first
+        if($request->orderBy=='likes'){
+            $query->withCount('likes') // likes_count
+                ->orderByDesc('likes_count');
         } else {
             $query->latest();
         }
-        return $query->get();
 
+        return $query->with('user')->get();
     }
+    
+
 }

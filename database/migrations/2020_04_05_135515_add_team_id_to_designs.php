@@ -14,7 +14,12 @@ class AddTeamIdToDesigns extends Migration
     public function up()
     {
         Schema::table('designs', function (Blueprint $table) {
-            $table->unsignedBigInteger('team_id')->nullable();
+            Schema::table('designs', function (Blueprint $table) {
+                $table->bigInteger('team_id')
+                    ->after('user_id')
+                    ->unsigned()
+                    ->nullable();
+            });
         });
     }
 

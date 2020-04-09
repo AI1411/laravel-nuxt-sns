@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Chat extends Model
 {
+    
     public function participants()
     {
         return $this->belongsToMany(User::class, 'participants');
@@ -17,6 +18,7 @@ class Chat extends Model
         return $this->hasMany(Message::class);
     }
 
+    // helper
     public function getLatestMessageAttribute()
     {
         return $this->messages()->latest()->first();
@@ -25,14 +27,14 @@ class Chat extends Model
     public function isUnreadForUser($userId)
     {
         return (bool)$this->messages()
-            ->whereNull('last_read')
-            ->where('user_id', '<>', $userId)
-            ->count();
+                ->whereNull('last_read')
+                ->where('user_id', '<>', $userId)
+                ->count();
     }
 
     public function markAsReadForUser($userId)
     {
-        return $this->messages()
+        $this->messages()
             ->whereNull('last_read')
             ->where('user_id', '<>', $userId)
             ->update([

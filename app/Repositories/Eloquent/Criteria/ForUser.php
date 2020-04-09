@@ -1,11 +1,11 @@
-<?php
-
+<?php 
 namespace App\Repositories\Eloquent\Criteria;
 
 use App\Repositories\Criteria\ICriterion;
 
 class ForUser implements ICriterion
 {
+
     protected $user_id;
 
     public function __construct($user_id)

@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Invitation extends Model
 {
+    
     protected $fillable = [
         'recipient_email',
         'sender_id',
@@ -28,7 +29,5 @@ class Invitation extends Model
         return $this->hasOne(User::class, 'id', 'sender_id');
     }
 
-    public function addUserToTeam($team, ?int $id)
-    {
-    }
+
 }

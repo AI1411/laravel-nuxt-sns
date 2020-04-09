@@ -9,7 +9,7 @@ class TeamResource extends JsonResource
     /**
      * Transform the resource into an array.
      *
-     * @param \Illuminate\Http\Request $request
+     * @param  \Illuminate\Http\Request  $request
      * @return array
      */
     public function toArray($request)
@@ -19,9 +19,9 @@ class TeamResource extends JsonResource
             'name' => $this->name,
             'total_members' => $this->members->count(),
             'slug' => $this->slug,
-            'desgins' => DesignResource::collection($this->designs),
+            'designs' => DesignResource::collection($this->designs),
             'owner' => new UserResource($this->owner),
-            'member' => UserResource::collection($this->members),
+            'member' => UserResource::collection($this->members)
         ];
     }
 }

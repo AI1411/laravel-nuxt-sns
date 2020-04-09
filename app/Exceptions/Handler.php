@@ -3,6 +3,7 @@
 namespace App\Exceptions;
 
 use Exception;
+use App\Exceptions\ModelNotDefined;
 use Illuminate\Auth\Access\AuthorizationException;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
@@ -31,10 +32,8 @@ class Handler extends ExceptionHandler
     /**
      * Report or log an exception.
      *
-     * @param \Exception $exception
+     * @param  \Exception  $exception
      * @return void
-     *
-     * @throws \Exception
      */
     public function report(Exception $exception)
     {
@@ -44,33 +43,34 @@ class Handler extends ExceptionHandler
     /**
      * Render an exception into an HTTP response.
      *
-     * @param \Illuminate\Http\Request $request
-     * @param \Exception $exception
-     * @return \Symfony\Component\HttpFoundation\Response
-     *
-     * @throws \Exception
+     * @param  \Illuminate\Http\Request  $request
+     * @param  \Exception  $exception
+     * @return \Illuminate\Http\Response
      */
     public function render($request, Exception $exception)
     {
-        if ($exception instanceof AuthorizationException) {
-            if ($request->expectsJson()) {
-                return response()->json(['errors' => [
-                    'message' => 'アクセス権限がありません'
+        if($exception instanceof AuthorizationException){
+            if($request->expectsJson()){
+                return response()->json(["errors" => [
+                    "message" => "You are not authorized to access this resource"
                 ]], 403);
             }
         }
 
-        if ($exception instanceof ModelNotFoundException && $request->expectsJson()) {
-            return response()->json(['errors' => [
-                'message' => 'リソースが見当たりません'
+        if($exception instanceof ModelNotFoundException && $request->expectsJson()){
+            return response()->json(["errors" => [
+                "message" => "The resource was not found in the database"
             ]], 404);
         }
 
-        if ($exception instanceof ModelNotDefined && $request->expectsJson()) {
-            return response()->json(['errors' => [
-                'message' => 'モデルが定義されていません'
+        if($exception instanceof ModelNotDefined && $request->expectsJson()){
+            return response()->json(["errors" => [
+                "message" => "No model defined"
             ]], 500);
         }
+
+        
+
 
         return parent::render($request, $exception);
     }

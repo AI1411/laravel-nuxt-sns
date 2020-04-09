@@ -68,15 +68,18 @@ class InvitationPolicy
         return $user->id == $invitation->sender_id;
     }
 
+    public function resend(User $user, Invitation $invitation)
+    {
+        return $user->id == $invitation->sender_id;
+    }
+
+
     public function respond(User $user, Invitation $invitation)
     {
         return $user->email == $invitation->recipient_email;
     }
 
-    public function resend(User $user, Invitation $invitation)
-    {
-        return $user->email == $invitation->recipient_email;
-    }
+    
 
     /**
      * Determine whether the user can restore the invitation.

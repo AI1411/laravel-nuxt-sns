@@ -2,8 +2,6 @@
 
 namespace App\Http;
 
-use App\Http\Middleware\ProfileJsonResponse;
-use Fruitcake\Cors\HandleCors;
 use Illuminate\Foundation\Http\Kernel as HttpKernel;
 
 class Kernel extends HttpKernel
@@ -21,8 +19,8 @@ class Kernel extends HttpKernel
         \Illuminate\Foundation\Http\Middleware\ValidatePostSize::class,
         \App\Http\Middleware\TrimStrings::class,
         \Illuminate\Foundation\Http\Middleware\ConvertEmptyStringsToNull::class,
-        ProfileJsonResponse::class,
-        HandleCors::class,
+        \Fruitcake\Cors\HandleCors::class,
+        \App\Http\Middleware\ProfileJsonResponse::class,
     ];
 
     /**
@@ -43,7 +41,7 @@ class Kernel extends HttpKernel
 
         'api' => [
             'throttle:60,1',
-            \Illuminate\Routing\Middleware\SubstituteBindings::class,
+            'bindings',
         ],
     ];
 

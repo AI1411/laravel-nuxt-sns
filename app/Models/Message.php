@@ -9,22 +9,20 @@ class Message extends Model
 {
     use SoftDeletes;
 
-    protected $touches = ['chat'];
+    protected $touches=['chat'];
 
-    protected $fillable = [
-        'user_id',
-        'chat_id',
-        'body',
-        'last_read'
+    protected $fillable=[
+        'user_id', 'chat_id', 'body', 'last_read'
     ];
 
     public function getBodyAttribute($value)
     {
-        if ($this->trashed()) {
-            if (!auth()->check()) return null;
+        if($this->trashed()){
+            if(!auth()->check()) return null;
 
-            return auth()->id() === $this->sender->id ? 'このメッセージは削除されました'
-                : "{$this->sender->name} がこのメッセージを削除しました";
+            return auth()->id() == $this->sender->id ?
+                    'You deleted this message' :
+                    "{$this->sender->name} deleted this message";
         }
         return $value;
     }
@@ -38,4 +36,6 @@ class Message extends Model
     {
         return $this->belongsTo(User::class, 'user_id');
     }
+
+    
 }

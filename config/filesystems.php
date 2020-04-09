@@ -58,7 +58,7 @@ return [
         'tmp' => [
             'driver' => 'local',
             'root' => storage_path(),
-            'url' => env("APP_URL") . '/storage',
+            'url' => env('APP_URL').'/storage',
             'visibility' => 'public'
         ],
 
@@ -68,7 +68,7 @@ return [
             'secret' => env('AWS_SECRET_ACCESS_KEY'),
             'region' => env('AWS_DEFAULT_REGION'),
             'bucket' => env('AWS_BUCKET'),
-            'endpoint' => env('AWS_URL'),
+            'url' => env('AWS_URL'),
         ],
 
     ],

@@ -3,9 +3,6 @@
 namespace App\Notifications;
 
 use Carbon\Carbon;
-use Illuminate\Bus\Queueable;
-use Illuminate\Contracts\Queue\ShouldQueue;
-use Illuminate\Notifications\Messages\MailMessage;
 use Illuminate\Auth\Notifications\VerifyEmail as Notification;
 use Illuminate\Support\Facades\URL;
 

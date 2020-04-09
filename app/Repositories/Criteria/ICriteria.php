@@ -1,8 +1,9 @@
-<?php
+<?php 
 
 namespace App\Repositories\Criteria;
 
 interface ICriteria
 {
-    public function withCriteria(... $criteria);
+    public function withCriteria(...$criteria);
+
 }

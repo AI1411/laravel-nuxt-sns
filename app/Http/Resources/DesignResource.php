@@ -3,14 +3,13 @@
 namespace App\Http\Resources;
 
 use Illuminate\Http\Resources\Json\JsonResource;
-use Psy\Util\Str;
 
 class DesignResource extends JsonResource
 {
     /**
      * Transform the resource into an array.
      *
-     * @param \Illuminate\Http\Request $request
+     * @param  \Illuminate\Http\Request  $request
      * @return array
      */
     public function toArray($request)
@@ -20,9 +19,9 @@ class DesignResource extends JsonResource
             'title' => $this->title,
             'slug' => $this->slug,
             'images' => $this->images,
-            'description' => $this->description,
             'is_live' => $this->is_live,
             'likes_count' => $this->likes()->count(),
+            'description' => $this->description,
             'tag_list' => [
                 'tags' => $this->tagArray,
                 'normalized' => $this->tagArrayNormalized,
@@ -31,18 +30,20 @@ class DesignResource extends JsonResource
                 'created_at_human' => $this->created_at->diffForHumans(),
                 'created_at' => $this->created_at
             ],
-            'update_at_dates' => [
-                'update_at_human' => $this->updated_at->diffForHumans(),
-                'update_at' => $this->updated_at
+            'updated_at_dates' => [
+                'updated_at_human' => $this->updated_at->diffForHumans(),
+                'updated_at' => $this->updated_at
             ],
             'team' => $this->team ? [
+                'id' => $this->team->id,
                 'name' => $this->team->name,
-                'slug' => $this->team->slug,
+                'slug' => $this->team->slug
             ] : null,
+            'comments_count' => $this->comments()->count(),
             'comments' => CommentResource::collection(
-                $this->whenLoaded('comments')
-            ),
+                            $this->whenLoaded('comments')),
             'user' => new UserResource($this->whenLoaded('user'))
+            
         ];
     }
 }

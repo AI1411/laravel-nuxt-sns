@@ -2,6 +2,8 @@
 
 namespace App\Repositories\Contracts;
 
-interface IComment
+interface IComment 
 {
+
+    
 }

@@ -2,8 +2,8 @@
 
 namespace App\Rules;
 
-use Illuminate\Contracts\Validation\Rule;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Contracts\Validation\Rule;
 
 class CheckSamePassword implements Rule
 {
@@ -14,7 +14,7 @@ class CheckSamePassword implements Rule
      */
     public function __construct()
     {
-        //
+        
     }
 
     /**
@@ -36,6 +36,6 @@ class CheckSamePassword implements Rule
      */
     public function message()
     {
-        return '現在のパスワードと異なるものにしてください';
+        return 'Your new password must be different from your current password';
     }
 }

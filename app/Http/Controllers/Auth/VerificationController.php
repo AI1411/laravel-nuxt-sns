@@ -2,29 +2,32 @@
 
 namespace App\Http\Controllers\Auth;
 
-use App\Http\Controllers\Controller;
 use App\Models\User;
-use App\Providers\RouteServiceProvider;
-use Illuminate\Auth\Events\Verified;
-use Illuminate\Foundation\Auth\VerifiesEmails;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\URL;
+use App\Http\Controllers\Controller;
+use Illuminate\Auth\Events\Verified;
+use App\Repositories\Contracts\IUser;
+use App\Providers\RouteServiceProvider;
+// use Illuminate\Foundation\Auth\VerifiesEmails;
 
 class VerificationController extends Controller
 {
+    
+    protected $users;
+
+   
     /**
      * Create a new controller instance.
      *
      * @return void
      */
-    public function __construct()
+    public function __construct(IUser $users)
     {
-//        $this->middleware('auth');
-//        $this->middleware('signed')->only('verify');
         $this->middleware('throttle:6,1')->only('verify', 'resend');
+        $this->users = $users;
     }
 
-    //verifyメソッドをオーバーライド
     public function verify(Request $request, User $user)
     {
         // check if the url is a valid signed url
@@ -45,6 +48,7 @@ class VerificationController extends Controller
         event(new Verified($user));
 
         return response()->json(['message' => 'Email successfully verified'], 200);
+
     }
 
     public function resend(Request $request)
@@ -52,20 +56,28 @@ class VerificationController extends Controller
         $this->validate($request, [
             'email' => ['email', 'required']
         ]);
-        $user = User::where('email', $request->email)->first();
-        if (!$user) {
-            return response()->json(['errors' => [
-                'email' => 'そのアドレスのユーザーが見つかりません',
+        
+        $user = $this->users->findWhereFirst('email', $request->email);
+        // $user = User::where('email', $request->email)->first();
+        
+        if(! $user){
+            return response()->json(["errors" => [
+                "email" => "No user could be found with this email address"
             ]], 422);
         }
 
-        if (!$user->hasVerifiedEmail()) {
-            return response()->json(['errors' => [
-                'email' => 'すでに認証されています',
+        if($user->hasVerifiedEmail()){
+            return response()->json(["errors" => [
+                "message" => "Email address already verified"
             ]], 422);
         }
+
         $user->sendEmailVerificationNotification();
 
-        return response()->json(['status' => '認証リンクを送りました']);
+        return response()->json(['status' => "verification link resent"]);
+
     }
+
+
+
 }

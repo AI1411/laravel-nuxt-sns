@@ -2,7 +2,7 @@
 
 namespace App\Repositories\Contracts;
 
-interface ITeam
+interface ITeam 
 {
-//    public function fetchUserTeams();
+    public function fetchUserTeams();
 }

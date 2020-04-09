@@ -2,33 +2,36 @@
 
 namespace App\Http\Controllers\Auth;
 
+use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
-use Illuminate\Foundation\Auth\AuthenticatesUsers;
-use Illuminate\Http\Request;
 use Illuminate\Validation\ValidationException;
+use Illuminate\Foundation\Auth\AuthenticatesUsers;
 
 class LoginController extends Controller
 {
+    
     use AuthenticatesUsers;
+
 
     public function attemptLogin(Request $request)
     {
+        // attempt to issue a token to the user based on the login credentials
         $token = $this->guard()->attempt($this->credentials($request));
 
-        if (!$token) {
+        if( ! $token){
             return false;
         }
 
-        //認証済ユーザーを取得
+        // Get the authenticated user
         $user = $this->guard()->user();
 
-        if ($user instanceof MustVerifyEmail && $user->hasVerifiedEmail()) {
+        if($user instanceof MustVerifyEmail && ! $user->hasVerifiedEmail()){
             return false;
         }
 
-        //ユーザートークンをセット
+        // set the user's token
         $this->guard()->setToken($token);
 
         return true;
@@ -38,36 +41,41 @@ class LoginController extends Controller
     {
         $this->clearLoginAttempts($request);
 
-        //JWTからtokenを取得
+        // get the tokem from the authentication guard (JWT)
         $token = (string)$this->guard()->getToken();
+
+        // extract the expiry date of the token
         $expiration = $this->guard()->getPayload()->get('exp');
 
         return response()->json([
             'token' => $token,
             'token_type' => 'bearer',
-            'expire_in' => $expiration
+            'expires_in' => $expiration
         ]);
     }
+
 
     protected function sendFailedLoginResponse()
     {
         $user = $this->guard()->user();
 
-        if ($user instanceof MustVerifyEmail && !$user->hasVerifiedEmail()) {
-            return response()->json(['errors' => [
-                'verification' => 'メールアドレスで認証する必要があります'
-            ]]);
+        if($user instanceof MustVerifyEmail && ! $user->hasVerifiedEmail()){
+            return response()->json(["errors" => [
+                "message" => "You need to verify your email account"
+            ]], 422);
         }
 
         throw ValidationException::withMessages([
-           $this->username() => "認証が失敗しました"
+            $this->username() => "Invalid credentials"
         ]);
     }
 
     public function logout()
     {
         $this->guard()->logout();
-
-        return response()->json(['message' => 'ログアウトしました']);
+        return response()->json(['message' => 'Logged out successfully!']);
     }
+
+
+
 }

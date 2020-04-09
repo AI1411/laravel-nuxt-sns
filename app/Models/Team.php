@@ -16,14 +16,17 @@ class Team extends Model
     {
         parent::boot();
 
-        //teamが作成されるとユーザーがチームメンバーに追加される
-        static::created(function ($team) {
+        // when team is created, add current user as
+        // team member
+        static::created(function($team){
+            // auth()->user()->teams()->attach($team->id);
             $team->members()->attach(auth()->id());
         });
 
-        static::deleting(function ($team) {
+        static::deleting(function($team){
             $team->members()->sync([]);
         });
+
     }
 
     public function owner()
@@ -34,7 +37,7 @@ class Team extends Model
     public function members()
     {
         return $this->belongsToMany(User::class)
-            ->withTimeStamps();
+                ->withTimestamps();
     }
 
     public function designs()
@@ -45,8 +48,8 @@ class Team extends Model
     public function hasUser(User $user)
     {
         return $this->members()
-            ->where('user_id', $user->id)
-            ->first() ? true : false;
+                    ->where('user_id', $user->id)
+                    ->first() ? true : false;
     }
 
     public function invitations()
@@ -57,7 +60,8 @@ class Team extends Model
     public function hasPendingInvite($email)
     {
         return (bool)$this->invitations()
-            ->where('recipient_email', $email)
-            ->count();
+                        ->where('recipient_email', $email)
+                        ->count();
     }
+
 }

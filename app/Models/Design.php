@@ -3,16 +3,17 @@
 namespace App\Models;
 
 use App\Models\Traits\Likeable;
-use Cviebrock\EloquentTaggable\Taggable;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Storage;
+use Cviebrock\EloquentTaggable\Taggable;
 
 class Design extends Model
 {
     use Taggable, Likeable;
-
-    protected $fillable = [
+    
+    protected $fillable=[
         'user_id',
+        'team_id',
         'image',
         'title',
         'description',
@@ -21,6 +22,12 @@ class Design extends Model
         'is_live',
         'upload_successful',
         'disk'
+    ];
+
+    protected $casts=[
+        'is_live' => 'boolean',
+        'upload_successful' => 'boolean',
+        'close_to_comments' => 'boolean'
     ];
 
     public function user()
@@ -32,17 +39,16 @@ class Design extends Model
     {
         return $this->belongsTo(Team::class);
     }
-
+    
     public function comments()
     {
         return $this->morphMany(Comment::class, 'commentable')
-            ->orderBy('created_at', 'asc');
+                ->orderBy('created_at', 'asc');
     }
 
     public function getImagesAttribute()
     {
-        $thumbnail = Storage::disk($this->disk)->url('uploads/designs/thumbnail/' . $this->image);
-
+        
         return [
             'thumbnail' => $this->getImagePath('thumbnail'),
             'large' => $this->getImagePath('large'),
@@ -52,6 +58,10 @@ class Design extends Model
 
     protected function getImagePath($size)
     {
-        return Storage::disk($this->disk)->url("uploads/designs/{$size}/" . $this->image);
+        return Storage::disk($this->disk)
+                        ->url("uploads/designs/{$size}/".$this->image);
     }
+
+    
+
 }
