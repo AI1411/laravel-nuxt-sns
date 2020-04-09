@@ -19,7 +19,7 @@ use App\Repositories\Eloquent\Criteria\{
 class DesignController extends Controller
 {
     protected $designs;
-    
+
     public function __construct(IDesign $designs)
     {
         $this->designs = $designs;
@@ -30,7 +30,7 @@ class DesignController extends Controller
         $designs = $this->designs->withCriteria([
             new LatestFirst(),
             new IsLive(),
-            new ForUser(2),
+//            new ForUser(2),
             new EagerLoad(['user', 'comments'])
         ])->all();
         return DesignResource::collection($designs);
@@ -54,19 +54,19 @@ class DesignController extends Controller
             'tags' => ['required'],
             'team' => ['required_if:assign_to_team,true']
         ]);
-        
+
 
         $design = $this->designs->update($id, [
             'team_id' => $request->team,
             'title' => $request->title,
             'description' => $request->description,
-            'slug' => Str::slug($request->title), 
+            'slug' => Str::slug($request->title),
             'is_live' => ! $design->upload_successful ? false : $request->is_live
         ]);
 
         // apply the tags
         $this->designs->applyTags($id, $request->tags);
-        
+
         return new DesignResource($design);
     }
 
@@ -110,7 +110,7 @@ class DesignController extends Controller
     public function findBySlug($slug)
     {
         $design = $this->designs->withCriteria([
-                new IsLive(), 
+                new IsLive(),
                 new EagerLoad(['user', 'comments'])
             ])->findWhereFirst('slug', $slug);
         return new DesignResource($design);
@@ -141,5 +141,5 @@ class DesignController extends Controller
         return new DesignResource($design);
     }
 
-    
+
 }

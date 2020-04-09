@@ -21,7 +21,7 @@ class UploadController extends Controller
         // validate the request
         $this->validate($request, [
             'image' => ['required', 'mimes:jpeg,gif,bmp,png', 'max:2048']
-        ]); 
+        ]);
 
         // get the image
         $image = $request->file('image');
@@ -31,9 +31,9 @@ class UploadController extends Controller
         // get the original file name and replace any spaces with _
         // Business Cards.png = timestamp()_business_cards.png
         $filename = time()."_". preg_replace('/\s+/', '_', strtolower($image->getClientOriginalName()));
-        
+
         // move the image to the temporary location (tmp)
-        $tmp = $image->storeAs('uploads/original', $filename, 'tmp');
+        $tmp = $image->storeAs(storage_path('uploads/original'), $filename, 'tmp');
 
         // create the database record for the design
         // $design = auth()->user()->designs()->create([
@@ -49,7 +49,7 @@ class UploadController extends Controller
 
         // dispatch a job to handle the image manipulation
         $this->dispatch(new UploadImage($design));
-        
+
         return response()->json($design, 200);
 
     }
